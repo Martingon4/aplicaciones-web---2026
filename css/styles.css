@@ -221,7 +221,25 @@ li{
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  background-color: #fff;
+  color: #000;
+  font-size: .880rem !important;
+  border: 2px solid #000;
   transition: background-color .3s ease-in-out, color .3s ease-in-out;
   box-shadow: 0 4px 6px rgba(0,0,0,.1);
   cursor: pointer;
+}
+
+.btn:hover{
+  background-color: #000;
+  color: #fff;
+}
+
+.btn--secondary{
+  background-color: #2994eb;
+}
+
+.btn--secondary:hover{
+  background-color: #43a2ef;
+  color: #fff;
 }
