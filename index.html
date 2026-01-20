@@ -4,50 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenida</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="main.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js"></script>
 </head>
 <body>
-  <h1>Integrantes</h1>
-  <main>
-    <div>
-      <ul>
-        <li>Martín Gonzalez muñoz</li>
-        <li>Enrique Hernández Luna</li>
-        <li>Adrian Rodriguez Martínez</li>
-      </ul>
-      <button type="button">Bienvenida</button>
+  <section class="hero hero--primary">
+    <div class="container">
+      <main class="hero__content">
+        <h1 class="title-primary">Desarrollo de Aplicaciones <strong class="bd-b">Web <span class="line line--primary"></span></strong> Primavera 2026</h1>
+        <p class="hero__lead">¡Bienvenidos al curso de Desarrollo de Aplicaciones Web! En este curso, exploraremos las tecnologías y herramientas esenciales para crear aplicaciones web modernas y funcionales. Prepárense para aprender sobre HTML, CSS, JavaScript, frameworks populares y mucho más.</p>
+        <button class="btn mt-1">Bienvenidos</button>
+      </main>
     </div>
-    <picture>
-      <img src="img.jpg" alt="">
-    </picture>
-  </main>
-  <table>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Edad</th>
-    </tr>
-    <tr>
-      <td>Martín</td>
-      <td>Gonzalez muñoz</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>Enrique</td>
-      <td>Hernández Luna</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <td>Adrian</td>
-      <td>Rodriguez Martínez</td>
-      <td>23</td>
-    </tr>
-  </table>
-  <h2>Otros editores de código</h2>
-  <ol>
-    <li><a href="https://jsfiddle.net/" target="_blank">JSFiddle</a></li>
-    <li><a href="https://playcode.io/" target="_blank">PlayCode</a></li>
-  </ol>
+  </section>
+  <div class="container">
+    <section class="members">
+      <article class="members__item">
+        <h2 class="title-secondary title-primary-color">Enrique Hernández Luna</h2>
+        <p class="text-primary-color">Estudiante de Desarrollo de Aplicaciones Web, apasionado por la programación y el diseño web. Me encanta crear experiencias digitales atractivas y funcionales.</p>
+      </article>
+      <article class="members__item">
+        <h2 class="title-secondary title-primary-color">Martín Gonzalez Muñoz</h2>
+        <p class="text-primary-color">Desarrollador web en formación, interesado en el desarrollo front-end y back-end. Disfruto aprendiendo nuevas tecnologías y aplicándolas en proyectos reales.</p>
+      </article>
+      <article class="members__item">
+        <h2 class="title-secondary title-primary-color">Adrian Rodriguez Martínez</h2>
+        <p class="text-primary-color">Apasionado por el desarrollo de aplicaciones web, con interés en la creación de soluciones innovadoras y eficientes. Me gusta trabajar en equipo y enfrentar nuevos desafíos.</p>
+      </article>
+    </section>
+    <section class="box-100 mt-4">
+      <article class="box-50">
+        <h2 class="title-secondary title-primary-color">Objetivos del Curso</h2>
+        <ul class="text-primary-color">
+          <li>Comprender los fundamentos del desarrollo web.</li>
+          <li>Aprender a utilizar HTML, CSS y JavaScript para crear aplicaciones web.</li>
+          <li>Explorar frameworks y bibliotecas populares como React, Angular o Vue.js.</li>
+          <li>Desarrollar habilidades para trabajar en equipo y gestionar proyectos web.</li>
+        </ul>
+        <h3 class="title-tertiary title-primary-color mt-3 mt-1">Editores de Código Recomendados</h3>
+        <ol class="text-primary-color">
+          <li><a href="https://jsfiddle.net/" target="_blank" class="link-inline link-inline--primary link-inline-hover--shodow">JSFiddle</a></li>
+          <li><a href="https://playcode.io/" target="_blank" class="link-inline link-inline--primary link-inline-hover--shodow">PlayCode</a></li>
+        </ol>
+      </article>
+      <picture class="box-50 h-v3-plus oh">
+        <img src="img/ic-1.jpg" alt="Imagen de desarrollo web" class="image-square h-100 rounded--v2 rotate-and-scale-on-hover">
+      </picture>
+    </section>
+  </div>
 </body>
 </html>
