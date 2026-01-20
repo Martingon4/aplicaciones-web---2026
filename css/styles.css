@@ -63,6 +63,12 @@ li{
   background-position: center;
 }
 
+.hero--secondary{
+  background-image: url('../img/hero-2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .bd-b{
   position: relative;
 }
