@@ -415,20 +415,29 @@ const horoscopes = [
   { 
     name: "Aries", 
     dates: "21 Mar - 19 Abr", 
-    prediction: "Probablemente, se sentirá presionado entre la diversión..." 
+    color: "#E63946",
+    prediction: "Probablemente, se sentirá presionado entre la diversión y el deber...",
+    image: "img/aries.png"
   },
   { 
     name: "Tauro", 
     dates: "20 Abr - 20 May", 
-    prediction: "Comprenda que no se puede resolver todo en un solo día..." 
+    color: "#4CAF50",
+    prediction: "Comprenda que no se puede resolver todo en un solo día...",
+    image: "img/tauro.png"
   },
-  // ... 10 signos más
+  // ... 10 signos más (Géminis, Cáncer, Leo, Virgo, Libra, Escorpio, Sagitario, Capricornio, Acuario, Piscis)
 ];
 ```
 
 **Contenido:**
 - 12 objetos, uno por cada signo zodiacal
-- Cada objeto tiene: `name` (nombre), `dates` (fechas), `prediction` (predicción)
+- Cada objeto contiene:
+  - `name`: Nombre del signo zodiacal
+  - `dates`: Rango de fechas del signo
+  - `color`: Color hexadecimal específico de fondo para el canvas (#E63946 para Aries, #4CAF50 para Tauro, etc.)
+  - `prediction`: Predicción astrológica personalizada
+  - `image`: Ruta a la imagen del signo (almacenada en carpeta `img/`)
 
 #### **3. Selección del Contenedor**
 
@@ -485,34 +494,46 @@ canvas.addEventListener("mouseleave", () => {
 - Al pasar el ratón: Escala del 110%
 - Al salir el ratón: Vuelve al 100%
 
-#### **6. Dibujo en Canvas**
+#### **6. Carga de Imagen y Dibujo en Canvas**
 
 ```javascript
 const ctx = canvas.getContext("2d");
 
-// Fondo azul
-ctx.fillStyle = "#00bfff";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+// Crear y cargar imagen del signo
+const img = new Image();
+img.src = horoscope.image;
 
-// Nombre del signo (24px, negrita)
-ctx.fillStyle = "#000000";
-ctx.font = "bold 24px serif";
-ctx.fillText(horoscope.name, 20, 40);
-
-// Fechas (14px)
-ctx.font = "14px serif";
-ctx.fillText(horoscope.dates, 20, 65);
-
-// Predicción con ajuste de texto
-ctx.font = "12px serif";
+img.onload = () => {
+  // 1. Dibujar fondo con color específico del signo
+  ctx.fillStyle = horoscope.color;  // Color único por signo
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // 2. Dibujar imagen del signo en la esquina superior derecha
+  ctx.drawImage(img, 145, 12, 45, 45);  // x=145, y=12, ancho=45, alto=45
+  
+  // 3. Nombre del signo (24px, negrita)
+  ctx.fillStyle = "#000000";
+  ctx.font = "bold 24px serif";
+  ctx.fillText(horoscope.name, 20, 40);
+  
+  // 4. Fechas (14px)
+  ctx.font = "14px serif";
+  ctx.fillText(horoscope.dates, 20, 65);
+  
+  // 5. Predicción con ajuste de texto
+  ctx.font = "12px serif";
+  // ... (envolvimiento de texto)
+};
 ```
 
 **Proceso de dibujo:**
-1. Obtiene el contexto 2D del canvas
-2. Dibuja fondo azul (#00bfff)
-3. Dibuja nombre en fuente grande (24px, negrita)
-4. Dibuja fechas en fuente mediana (14px)
-5. Dibuja predicción con ajuste de línea
+1. Crea objeto `Image` y carga la ruta desde `horoscope.image`
+2. Espera a que la imagen se cargue con `img.onload`
+3. Dibuja fondo con color específico de cada signo (`horoscope.color`)
+4. Dibuja la imagen del signo en posición fija (x=145, y=12) con tamaño 45x45px
+5. Dibuja nombre en fuente grande (24px, negrita) en posición (20, 40)
+6. Dibuja fechas en fuente mediana (14px) en posición (20, 65)
+7. Dibuja predicción con ajuste de línea a partir de y=90
 
 #### **7. Envolvimiento de Texto (Text Wrapping)**
 
@@ -572,9 +593,16 @@ ctx.fillText(line, 20, y);
 { 
   name: "Mi Signo", 
   dates: "XX Mes - XX Mes", 
-  prediction: "Mi predicción aquí..."
+  color: "#HEXCOLOR",
+  prediction: "Mi predicción aquí...",
+  image: "img/misigno.png"
 }
 ```
+
+**Pasos:**
+1. Agregar objeto con las 5 propiedades requeridas
+2. Crear archivo de imagen en carpeta `img/` (PNG recomendado)
+3. Usar color hexadecimal único para el fondo del canvas
 
 #### Cambiar colores:
 
