@@ -9,9 +9,9 @@ window.addEventListener("DOMContentLoaded", () => {
     { name: "Libra", dates: "23 Sep - 22 Oct", color: "#F48FB1", prediction: "No es momento para detenerse. Prepárese, ya que se sentirá pleno de vitalidad y confianza, todo lo que emprenda en esta jornada tendrá un final exitoso.", image: "img/libra.png" },
     { name: "Escorpio", dates: "23 Oct - 21 Nov", color: "#600000", prediction: "Durante esta jornada, sentirá una gran contradicción entre sus propios deseos y lo que tiene, no se ahogue en ellos. Crea en usted mismo y todo saldrá como esperaba.", image: "img/escorpion.png" },
     { name: "Sagitario", dates: "22 Nov - 21 Dic", color: "#673AB7", prediction: "Transitará por un período optimo para comenzar con una renovación en su vida personal. No olvide aceptarse tal cual es e incremente su autoestima.", image: "img/sagitario.png" },
-    { name: "Capricornio", dates: "22 Dic - 19 Ene", color: "#263238", prediction: "Comenzará el día deseando estar en soledad. No piense que algo funciona mal, sepa que se trata de una necesidad de reencontrarse con usted mismo.", image: "img/capricornio.jpg" },
+    { name: "Capricornio", dates: "22 Dic - 19 Ene", color: "#263238", prediction: "Comenzará el día deseando estar en soledad. No piense que algo funciona mal, sepa que se trata de una necesidad de reencontrarse con usted mismo.", image: "img/capricornio.png" },
     { name: "Acuario", dates: "20 Ene - 18 Feb", color: "#00B0FF", prediction: "Deje de exponer tanto su vida privada a los demás, ya que las decisiones deberá tomarla usted mismo. Hoy su inseguridad le afectará en todos los planos.", image: "img/acuario.png" },
-    { name: "Piscis", dates: "19 Feb - 20 Mar", color: "#4DB6AC", prediction: "Sepa que pronto recuperará la autoestima y la seguridad en si mismo, así podrá alcanzar el éxito en sus próximos emprendimientos y proyectos planeados.", image: "img/piscis.jpg" }
+    { name: "Piscis", dates: "19 Feb - 20 Mar", color: "#4DB6AC", prediction: "Sepa que pronto recuperará la autoestima y la seguridad en si mismo, así podrá alcanzar el éxito en sus próximos emprendimientos y proyectos planeados.", image: "img/piscis.png" }
   ];
 
   const container = document.querySelector(".container-el");
