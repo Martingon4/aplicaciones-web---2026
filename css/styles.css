@@ -37,7 +37,7 @@ li{
 }
 
 .title-primary-color{
-  color: #fdfffd;
+  color:#fdfffd;
 }
 
 .title-secondary-color{
@@ -83,11 +83,11 @@ li{
 }
 
 .line--primary{
-  background-color: #0e4e83;
+  background-color: #83390e;
 }
 
 .line--secondary{
-  background-color: #00ccff;
+  background-color: #3a6f7c;
 }
 
 .title-primary{
@@ -152,7 +152,7 @@ li{
 }
 
 .h-v1{
-  height: 8rem;
+  height: 12rem;
 }
 
 .h-v2{
@@ -160,7 +160,7 @@ li{
 }
 
 .h-v3{
-  height: 16rem;
+  height: 18rem;
 }
 
 .h-v3-plus{
@@ -194,7 +194,7 @@ li{
 }
 
 .link-inline--primary{
-  color: #2994eb;
+  color: #29b4eb;
 }
 
 .link-inline-hover--shodow{
@@ -242,7 +242,7 @@ li{
 }
 
 .btn--secondary{
-  background-color: #2994eb;
+  background-color: #43a2ef;;
 }
 
 .btn--secondary:hover{
