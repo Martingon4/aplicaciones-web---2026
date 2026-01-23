@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // 1. Dibujar fondo
       ctx.fillStyle = horoscope.color;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 145, 12, 45, 45);
+      ctx.drawImage(img, 145, 12, 50, 50);
       ctx.fillStyle = "#000000";
       ctx.font = "bold 24px serif";
       ctx.fillText(horoscope.name, 20, 40);
