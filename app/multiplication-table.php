@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['numero'])) {
             'mensaje' => 'Número recibido correctamente: ' . $numero,
             'resultados' => $resultados
         ]);
+        
     } else {
         echo json_encode([
             'success' => false,
