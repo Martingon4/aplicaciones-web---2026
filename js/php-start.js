@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (xhr.status === 200) {
         console.log('Respuesta del servidor:', xhr.responseText);
         // Aquí puedes procesar la respuesta del servidor
-      } else {
+      } else {g
         console.error('Error en la solicitud:', xhr.status);
       }
     };
