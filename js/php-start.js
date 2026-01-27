@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const sendBtn = document.getElementById('send-multiplication');
   const numberInput = document.getElementById('number-input');
+  const resultsList = document.getElementById('results');
 
   sendBtn.addEventListener('click', function(e) {
     e.preventDefault(); // Evitar que se refresque la página
@@ -28,8 +29,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     xhr.onload = function() {
       if (xhr.status === 200) {
-        console.log('Respuesta del servidor:', xhr.responseText);
-        // Aquí puedes procesar la respuesta del servidor
+        let data;
+        try {
+          data = JSON.parse(xhr.responseText);
+        } catch (error) {
+          console.error('Respuesta no es JSON válido:', xhr.responseText);
+          return;
+        }
+
+        if (!data.success) {
+          alert(data.error || 'Ocurrió un error al procesar la solicitud');
+          return;
+        }
+
+        if (!Array.isArray(data.resultados)) {
+          console.warn('No se recibieron resultados de multiplicación');
+          return;
+        }
+
+        resultsList.innerHTML = '';
+        data.resultados.forEach(function(item) {
+          const li = document.createElement('li');
+          li.textContent = item.operacion;
+          li.classList.add('title-secondary-color');
+          resultsList.appendChild(li);
+        });
       } else {g
         console.error('Error en la solicitud:', xhr.status);
       }
