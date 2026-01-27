@@ -120,6 +120,14 @@ li{
   margin-right: auto;
 }
 
+.rad-1{
+  border-radius: 1rem;
+}
+
+.pd-1{
+  padding: 1rem;
+}
+
 .mt-1{
   margin-top: 1rem;
 }
@@ -135,6 +143,11 @@ li{
 .box-50{
   display: inline-block;
   width: 48%;
+}
+
+.box-25{
+  display: inline-block;
+  width: 23%;
 }
 
 .image-square{
@@ -248,4 +261,13 @@ li{
 .btn--secondary:hover{
   background-color: #43a2ef;
   color: #fff;
+}
+
+.box-bg-primary{
+  background-color: #676767;
+}
+
+.btns{
+  display: inline-block;
+  max-width: 200px;
 }
