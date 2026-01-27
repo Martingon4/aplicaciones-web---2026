@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Enviar el dato sanitizado
+    
     xhr.send('numero=' + encodeURIComponent(numero));
   });
 });
