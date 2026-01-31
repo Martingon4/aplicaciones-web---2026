@@ -1,31 +1,32 @@
 // Capturar el clic en el botón send-multiplication
 document.addEventListener('DOMContentLoaded', function() {
-  const sendBtn = document.getElementById('send-multiplication');
-  const numberInput = document.getElementById('number-input');
-  const resultsList = document.getElementById('results');
+  const sendBtn = document.getElementById('send-comparison');
+  const numero1Input = document.getElementById('numero1-input');
+  const numero2Input = document.getElementById('numero2-input');
+  const resultElement = document.getElementById('comparison-result');
 
   sendBtn.addEventListener('click', function(e) {
     e.preventDefault(); // Evitar que se refresque la página
 
     // Obtener el valor del input
-    const numero = numberInput.value.trim();
-
+    const numero1 = numberInput.value.trim();
+    const numero2 = numberImput.value.trim();
     // Validar que no esté vacío
-    if (numero === '') {
-      alert('Por favor, ingrese un número');
+    if (numero1 === '' || numero2 === '') {
+      alert('Ingresa ambos numeros ');
       return;
     }
     // contrasena Holaccomoestas
 
     // Validar que sea un número
-    if (isNaN(numero) || numero === '') {
-      alert('Por favor, ingrese un número válido');
+    if (isNaN(numero1) || isNaN(numero2)) {
+      alert('Por favor, ingrese numeros  válidos');
       return;
     }
 
     // Enviar el número al archivo PHP via XMLHttpRequest
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'app/multiplication-table.php', true);
+    xhr.open('POST', 'app/validacion-numeros.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
@@ -69,6 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enviar el dato sanitizado
   
-    xhr.send('numero=' + encodeURIComponent(numero));
+    xhr.send('numero1=' + encodeURIComponent(numero1) + '&numero2=' + encodeURIComponent(numero2));
   });
 });
