@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['numero'])) {
             'error' => 'El valor no es un número válido'
         ]);
     }
+    
 
 } else {
     echo json_encode([
