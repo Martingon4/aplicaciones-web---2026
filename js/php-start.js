@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
           li.classList.add('title-secondary-color');
           resultsList.appendChild(li);
         });
-      } else {g
+      } else {
         console.error('Error en la solicitud:', xhr.status);
       }
     };
