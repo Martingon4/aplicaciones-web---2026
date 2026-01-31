@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Por favor, ingrese un número');
       return;
     }
+    // contrasena Holaccomoestas
 
     // Validar que sea un número
     if (isNaN(numero) || numero === '') {
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Enviar el dato sanitizado
-    
+  
     xhr.send('numero=' + encodeURIComponent(numero));
   });
 });
