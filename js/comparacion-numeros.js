@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const sendBtn = document.getElementById('send-comparison');
   const numero1Input = document.getElementById('numero1-input');
   const numero2Input = document.getElementById('numero2-input');
-  const resultElement = document.getElementById('comparison-result');
+  const comparisonResult = document.getElementById('comparison-result');
 
   sendBtn.addEventListener('click', function(e) {
     e.preventDefault(); // Evitar que se refresque la página
 
     // Obtener el valor del input
-    const numero1 = numberInput.value.trim();
-    const numero2 = numberImput.value.trim();
+    const numero1 = numero1Input.value.trim();
+    const numero2 = numero2Input.value.trim();
     // Validar que no esté vacío
     if (numero1 === '' || numero2 === '') {
       alert('Ingresa ambos numeros ');
@@ -45,20 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
         }
 
-        if (!Array.isArray(data.resultados)) {
-          console.warn('No se recibieron resultados de multiplicación');
+        if (!comparisonResult) {
+          console.warn('No se encontró el contenedor de resultados');
           return;
         }
 
-        console.log('resultsList element:', resultsList);
-        resultsList.innerHTML = '';
-        data.resultados.forEach(function(item) {
-          const li = document.createElement('li');
-          li.textContent = item.operacion;
-          li.classList.add('title-secondary-color');
-          resultsList.appendChild(li);
-          console.log('Item agregado:', item.operacion);
-        });
+        comparisonResult.innerHTML = '';
+        const p = document.createElement('p');
+        p.textContent = data.mensaje || 'Resultado recibido';
+        p.classList.add('title-secondary-color');
+        comparisonResult.appendChild(p);
       } else {
         console.error('Error en la solicitud:', xhr.status);
       }
@@ -73,3 +69,4 @@ document.addEventListener('DOMContentLoaded', function() {
     xhr.send('numero1=' + encodeURIComponent(numero1) + '&numero2=' + encodeURIComponent(numero2));
   });
 });
+    

@@ -1,5 +1,5 @@
 <?php
-// 1. Verificar que se recibieron dos números por POST
+ // 1. Verificar que se recibieron dos números por POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && 
     isset($_POST['numero1']) && 
     isset($_POST['numero2'])) {
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
     
     // 3. Validar que sean números
     if (is_numeric($numero1) && is_numeric($numero2)) {
-        // 4. Convertir a enteros
+        // 4. Convertir a enteros 
         $numero1 = intval($numero1);
         $numero2 = intval($numero2);
         
