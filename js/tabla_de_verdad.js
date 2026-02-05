@@ -18,18 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         results.innerHTML = `
           <tr>
-            <th>A</th>
-            <th>B</th>
-            <th>A OR B</th>
+            <th class="text-primary-color">A</th>
+            <th class="text-primary-color">B</th>
+            <th class="text-primary-color">A OR B</th>
           </tr>
         `;
 
         data.tabla.forEach(fila => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td>${fila.a}</td>
-            <td>${fila.b}</td>
-            <td>${fila.resultado}</td>
+            <td class="text-primary-color">${fila.a}</td>
+            <td class="text-primary-color">${fila.b}</td>
+            <td class="text-primary-color">${fila.resultado}</td>
           `;
           results.appendChild(tr);
         });
