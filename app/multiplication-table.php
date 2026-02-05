@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['numero'])) {
 } else {
     echo json_encode([
         'success' => false,
-        'error' => 'No se recibió el dato'
+        'error' => 'No se recibió el datooo'
     ]);
 }
 ?>
