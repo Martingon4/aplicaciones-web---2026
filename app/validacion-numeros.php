@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
             'numero1' => $numero1,
             'numero2' => $numero2,
             'resultado' => $resultado,
-            'mensaje' => ($resultado === 1) ? 'Los números son iguales' : 'Los números son diferentes'
+            'mensaje' => ($resultado === 1) ? '1' : '0'
         ]);
         
     } else {
