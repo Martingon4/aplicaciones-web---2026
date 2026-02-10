@@ -1,0 +1,107 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>For get data</title>
+   <link rel="stylesheet" href="css/get-data.css">
+ </head>
+ <body>
+  <main>
+    <h1>Formulario de datos personales</h1>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Datos de nacimiento</legend>
+        <div>
+          <label for="birth-hour">Hora de nacimiento</label>
+          <input type="time" id="birth-hour" name="birth_hour" required>
+        </div>
+        <div>
+          <label for="birth-day">Dia de nacimiento</label>
+          <input type="number" id="birth-day" name="birth_day" min="1" max="31" required>
+        </div>
+        <div>
+          <label for="birth-month">Mes de nacimiento</label>
+          <input type="number" id="birth-month" name="birth_month" min="1" max="12" required>
+        </div>
+        <div>
+          <label for="birth-year">Ano de nacimiento</label>
+          <input type="number" id="birth-year" name="birth_year" min="1900" max="2100" required>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Informacion de pareja</legend>
+        <div>
+          <input type="checkbox" id="has-partner" name="has_partner" aria-controls="partner-data">
+          <label for="has-partner">Tengo pareja</label>
+        </div>
+        <div id="partner-data" aria-live="polite">
+          <div>
+            <label for="partner-hour">Hora de nacimiento de la pareja</label>
+            <input type="time" id="partner-hour" name="partner_hour">
+          </div>
+          <div>
+            <label for="partner-day">Dia de nacimiento de la pareja</label>
+            <input type="number" id="partner-day" name="partner_day" min="1" max="31">
+          </div>
+          <div>
+            <label for="partner-month">Mes de nacimiento de la pareja</label>
+            <input type="number" id="partner-month" name="partner_month" min="1" max="12">
+          </div>
+          <div>
+            <label for="partner-year">Ano de nacimiento de la pareja</label>
+            <input type="number" id="partner-year" name="partner_year" min="1900" max="2100">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Salud</legend>
+        <div>
+          <label for="illnesses">Enfermedades que ha tenido en el ano</label>
+          <textarea id="illnesses" name="illnesses" rows="4" placeholder="Escriba las enfermedades si las hay"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="title">Situacion financiera</legend>
+        <div>
+          <input type="radio" id="finance-good" name="financial_status" value="buena" required>
+          <label for="finance-good">Buena</label>
+        </div>
+        <div>
+          <input type="radio" id="finance-regular" name="financial_status" value="regular">
+          <label for="finance-regular">Regular</label>
+        </div>
+        <div>
+          <input type="radio" id="finance-bad" name="financial_status" value="mala">
+          <label for="finance-bad">Mala</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="title">Situacion laboral</legend>
+        <div>
+          <input type="radio" id="work-unemployed" name="work_status" value="desempleado" required>
+          <label for="work-unemployed">Desempleado</label>
+        </div>
+        <div>
+          <input type="radio" id="work-employed" name="work_status" value="empleado">
+          <label for="work-employed">Empleado</label>
+        </div>
+        <div>
+          <input type="radio" id="work-entrepreneur" name="work_status" value="empresario">
+          <label for="work-entrepreneur">Empresario</label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn">Enviar</button>
+      <a href="show-data.html" class="btn" hidden>Ver datos</a>
+      <a href="index.html" class="btn" hidden>Inicio</a>
+    </form>
+  </main>
+  <script src="js/get-data.js"></script>
+ </body>
+ </html>
+</html>
