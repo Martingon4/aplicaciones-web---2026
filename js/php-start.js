@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Por favor, ingrese un número');
       return;
     }
-    // contrasena Holaccomoestas
+    // contrasena de github Holaccomoestas
 
     // Validar que sea un número
     if (isNaN(numero) || numero === '') {
@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
           console.warn('No se recibieron resultados de multiplicación');
           return;
         }
-
-        console.log('resultsList element:', resultsList);
+        // Limpiar la lista de resultados antes de agregar nuevos
+        //console.log('resultsList element:', resultsList);
         resultsList.innerHTML = '';
         data.resultados.forEach(function(item) {
           const li = document.createElement('li');

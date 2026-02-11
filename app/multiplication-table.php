@@ -1,17 +1,17 @@
 <?php
 // Verificar que se recibió el dato por POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['numero'])) {
-    // Sanitizar y validar el número
+    // valida el  número
     $numero = trim($_POST['numero']);
     
     // Validar que sea un número
     if (is_numeric($numero)) {
         $numero = intval($numero);
         
-        // Crear arreglo para guardar los resultados
+        // Resultados
         $resultados = [];
         
-        // Guardar cada multiplicación en el arreglo
+        // Guardar 
         for ($i = 1; $i <= 10; $i++) {
             $resultados[] = [
                 'multiplicador' => $i,
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['numero'])) {
 } else {
     echo json_encode([
         'success' => false,
-        'error' => 'No se recibió el datooo'
+        'error' => 'No se recibió el datooo00'
     ]);
 }
 ?>
