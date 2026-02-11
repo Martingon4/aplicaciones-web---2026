@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(result => {
       if (result.success) {
         const data = result.data;
+
+        // --- PENDIENTE: Cambiar color según sexo ---
+        // Esto asume que el género se guardó en la sesión previamente
+        if (data.genero) {
+            document.body.className = data.genero;
+        }
         
         // Construir el HTML con los datos
         let html = `
@@ -39,6 +45,17 @@ document.addEventListener('DOMContentLoaded', function() {
               </ul>
             </section>
           `;
+
+          // --- PENDIENTE: Mostrar si son almas gemelas o llamas gemelas ---
+          let compatibilidad = "";
+          // Lógica: Si nacieron en el mismo mes son Almas Gemelas, si no, Llamas Gemelas
+          if (data.birth_month === data.partner_month) {
+              compatibilidad = "<h3 style='color: #d32f2f; text-align:center;'>✨ ¡Son Almas Gemelas! ✨</h3><p style='text-align:center;'>Su conexión trasciende el tiempo y el espacio.</p>";
+          } else {
+              compatibilidad = "<h3 style='color: #f57c00; text-align:center;'>🔥 ¡Son Llamas Gemelas! 🔥</h3><p style='text-align:center;'>Una conexión intensa destinada al crecimiento mutuo.</p>";
+          }
+          html += `<section class="data-section">${compatibilidad}</section>`;
+
         } else {
           html += `
             <section class="data-section">

@@ -61,3 +61,53 @@ fieldset > div > div > input
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* colores según género */
+/* --- Colores más notorios para Género --- */
+
+/* Femenino: Rosa Cálido más intenso */
+body.femenino {
+    background-color: #ffd1dc !important; /* Rosa pastel vibrante */
+    color: #4a0e0e !important; /* Café oscuro para contraste */
+}
+
+body.femenino .data-section {
+    background-color: #ffffff !important;
+    border: 2px solid #ff85a2 !important; /* Borde rosa fuerte */
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 12px rgba(255, 133, 162, 0.3) !important;
+}
+
+body.femenino .btn {
+    background-color: #ff4081 !important;
+    border: none !important;
+}
+
+/* Masculino: Azul Frío más marcado */
+body.masculino {
+    background-color: #bbdefb !important; /* Azul cielo claro */
+    color: #012169 !important; /* Azul marino profundo */
+}
+
+body.masculino .data-section {
+    background-color: #ffffff !important;
+    border: 2px solid #64b5f6 !important; /* Borde azul fuerte */
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 12px rgba(100, 181, 246, 0.3) !important;
+}
+
+body.masculino .btn {
+    background-color: #1976d2 !important;
+    border: none !important;
+}
+
+/* General para las secciones para que resalten */
+.data-section h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}

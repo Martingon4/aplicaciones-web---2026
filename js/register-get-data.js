@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(result => {
       if (result.success) {
         const data = result.data;
+
+        document.body.className = data.genero;
         
         // Construir el HTML con los datos
         let html = `
