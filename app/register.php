@@ -2,6 +2,8 @@
 session_start();
 header('Content-Type: application/json');
 
+require_once 'db_config.php';
+
 // Verificar que sea una petición POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode([
@@ -58,18 +60,71 @@ if (strlen($data['password']) < 6) {
     exit;
 }
 
-// Guardar datos en sesión para compartir con register-get-data.php
-// No guardamos la contraseña en texto plano para mostrar
-$_SESSION['register_data'] = [
-    'nombre' => $data['nombre'],
-    'apellido_paterno' => $data['apellido_paterno'],
-    'apellido_materno' => $data['apellido_materno'],
-    'nick' => $data['nick'],
-    'correo' => $data['correo'],
-    'genero' => $data['genero']
+// Mapear género al formato de la base de datos
+$generoMap = [
+    'masculino' => 'Masculino',
+    'femenino' => 'Femenino',
+    'otro' => 'Otro'
 ];
+$generoDb = $generoMap[strtolower($data['genero'])] ?? 'Otro';
 
-echo json_encode([
-    'success' => true,
-    'message' => 'Usuario registrado correctamente'
-]);
+// Guardar en la base de datos
+try {
+    $pdo = getDBConnection();
+    
+    // Verificar si el nick o correo ya existen
+    $stmt = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE nick = ? OR correo_electronico = ?");
+    $stmt->execute([$data['nick'], $data['correo']]);
+    
+    if ($stmt->fetch()) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'El nick o correo electrónico ya están registrados.'
+        ]);
+        exit;
+    }
+    
+    // Insertar el nuevo usuario
+    $stmt = $pdo->prepare("
+        INSERT INTO usuarios (nombre, apellido_paterno, apellido_materno, nick, correo_electronico, contrasena_hash, genero)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ");
+    
+    $passwordHash = password_hash($data['password'], PASSWORD_DEFAULT);
+    
+    $stmt->execute([
+        $data['nombre'],
+        $data['apellido_paterno'],
+        $data['apellido_materno'],
+        $data['nick'],
+        $data['correo'],
+        $passwordHash,
+        $generoDb
+    ]);
+    
+    $userId = $pdo->lastInsertId();
+    
+    // Guardar datos en sesión para compartir con register-get-data.php
+    // No guardamos la contraseña en texto plano para mostrar
+    $_SESSION['register_data'] = [
+        'id_usuario' => $userId,
+        'nombre' => $data['nombre'],
+        'apellido_paterno' => $data['apellido_paterno'],
+        'apellido_materno' => $data['apellido_materno'],
+        'nick' => $data['nick'],
+        'correo' => $data['correo'],
+        'genero' => $data['genero']
+    ];
+    
+    echo json_encode([
+        'success' => true,
+        'message' => 'Usuario registrado correctamente',
+        'id_usuario' => $userId
+    ]);
+    
+} catch (PDOException $e) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Error de base de datos: ' . $e->getMessage()
+    ]);
+}

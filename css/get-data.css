@@ -4,8 +4,9 @@
 
 body{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  max-width: 500px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 form{
@@ -110,4 +111,60 @@ body.masculino .btn {
     margin-top: 0;
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
+}
+
+/* Estilos para tablas de datos */
+#usuarios-section,
+#datos-personales-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#usuarios-section h2,
+#datos-personales-section h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+#usuarios-table,
+#datos-personales-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+#usuarios-table th,
+#usuarios-table td,
+#datos-personales-table th,
+#datos-personales-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#usuarios-table th,
+#datos-personales-table th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: 600;
+}
+
+#usuarios-table tbody tr:nth-child(even),
+#datos-personales-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#usuarios-table tbody tr:hover,
+#datos-personales-table tbody tr:hover {
+    background-color: #e6f2ff;
 }

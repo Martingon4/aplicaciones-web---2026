@@ -98,8 +98,32 @@
 
       <button type="submit" class="btn">Enviar</button>
       <a href="show-data.html" class="btn" hidden>Ver datos</a>
-      <a href="index.html" class="btn" hidden>Inicio</a>
+      <a href="index.html" class="btn">Inicio</a>
     </form>
+
+    <section id="datos-personales-section">
+      <h2>Datos personales registrados</h2>
+      <div class="table-container">
+        <table id="datos-personales-table">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Nacimiento</th>
+              <th>Tiene Pareja</th>
+              <th>Nacimiento Pareja</th>
+              <th>Enfermedades</th>
+              <th>Sit. Financiera</th>
+              <th>Sit. Laboral</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="7">Cargando datos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </main>
   <script src="js/get-data.js"></script>
  </body>

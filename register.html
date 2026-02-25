@@ -60,8 +60,33 @@
 
       <button type="submit" class="btn">Registrarse</button>
       <a href="register-data.html" class="btn" id="ver-datos" hidden>Ver datos</a>
+      <a href="get-data.html" class="btn" id="agregar-datos" hidden>Agregar datos personales</a>
       <a href="index.html" class="btn">Inicio</a>
     </form>
+
+    <section id="usuarios-section">
+      <h2>Usuarios registrados</h2>
+      <div class="table-container">
+        <table id="usuarios-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido Paterno</th>
+              <th>Nick</th>
+              <th>Correo</th>
+              <th>Género</th>
+              <th>Fecha Registro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="7">Cargando usuarios...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </main>
   <script src="js/register.js"></script>
 </body>

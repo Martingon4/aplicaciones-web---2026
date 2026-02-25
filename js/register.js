@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('register-form');
   const verDatosLink = document.getElementById('ver-datos');
+  const agregarDatosLink = document.getElementById('agregar-datos');
+
+  // Cargar tabla de usuarios al iniciar
+  cargarUsuarios();
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -120,6 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (verDatosLink) {
           verDatosLink.removeAttribute('hidden');
         }
+        // Mostrar el enlace "Agregar datos personales"
+        if (agregarDatosLink) {
+          agregarDatosLink.removeAttribute('hidden');
+        }
+        // Actualizar la tabla de usuarios
+        cargarUsuarios();
+        // Limpiar el formulario
+        form.reset();
       } else {
         alert('Error: ' + data.message);
       }
@@ -129,4 +141,33 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Hubo un error al registrar. Por favor, intente nuevamente.');
     });
   });
+
+  // Función para cargar usuarios desde la base de datos
+  function cargarUsuarios() {
+    const tbody = document.querySelector('#usuarios-table tbody');
+    
+    fetch('app/list-usuarios.php')
+      .then(response => response.json())
+      .then(result => {
+        if (result.success && result.data.length > 0) {
+          tbody.innerHTML = result.data.map(usuario => `
+            <tr>
+              <td>${usuario.id_usuario}</td>
+              <td>${usuario.nombre}</td>
+              <td>${usuario.apellido_paterno}</td>
+              <td>${usuario.nick}</td>
+              <td>${usuario.correo_electronico}</td>
+              <td>${usuario.genero}</td>
+              <td>${new Date(usuario.created_at).toLocaleString('es-ES')}</td>
+            </tr>
+          `).join('');
+        } else {
+          tbody.innerHTML = '<tr><td colspan="7">No hay usuarios registrados</td></tr>';
+        }
+      })
+      .catch(error => {
+        console.error('Error al cargar usuarios:', error);
+        tbody.innerHTML = '<tr><td colspan="7">Error al cargar usuarios</td></tr>';
+      });
+  }
 });

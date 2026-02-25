@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const hasPartnerCheckbox = document.getElementById('has-partner');
   const partnerDataDiv = document.getElementById('partner-data');
 
+  // Cargar tabla de datos personales al iniciar
+  cargarDatosPersonales();
+
   // Mostrar/ocultar datos de pareja según el checkbox
   if (hasPartnerCheckbox && partnerDataDiv) {
     partnerDataDiv.style.display = hasPartnerCheckbox.checked ? 'block' : 'none';
@@ -113,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (verDatosLink) {
           verDatosLink.removeAttribute('hidden');
         }
+        // Actualizar la tabla de datos personales
+        cargarDatosPersonales();
       } else {
         alert('Error: ' + data.message);
       }
@@ -122,4 +127,42 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Hubo un error al enviar los datos. Por favor, intente nuevamente.');
     });
   });
+
+  // Función para cargar datos personales desde la base de datos
+  function cargarDatosPersonales() {
+    const tbody = document.querySelector('#datos-personales-table tbody');
+    
+    fetch('app/list-datos-personales.php')
+      .then(response => response.json())
+      .then(result => {
+        if (result.success && result.data.length > 0) {
+          tbody.innerHTML = result.data.map(dato => {
+            const fechaNacimiento = `${dato.dia_nacimiento}/${dato.mes_nacimiento}/${dato.anio_nacimiento} ${dato.hora_nacimiento || ''}`;
+            const tienePareja = dato.tengo_pareja == 1 ? 'Sí' : 'No';
+            const fechaPareja = dato.tengo_pareja == 1 
+              ? `${dato.dia_nacimiento_pareja}/${dato.mes_nacimiento_pareja}/${dato.anio_nacimiento_pareja} ${dato.hora_nacimiento_pareja || ''}`
+              : '-';
+            const enfermedades = dato.enfermedades_anio || 'Ninguna';
+            
+            return `
+              <tr>
+                <td>${dato.nombre} ${dato.apellido_paterno} (${dato.nick})</td>
+                <td>${fechaNacimiento}</td>
+                <td>${tienePareja}</td>
+                <td>${fechaPareja}</td>
+                <td>${enfermedades}</td>
+                <td>${dato.situacion_financiera}</td>
+                <td>${dato.situacion_laboral}</td>
+              </tr>
+            `;
+          }).join('');
+        } else {
+          tbody.innerHTML = '<tr><td colspan="7">No hay datos personales registrados</td></tr>';
+        }
+      })
+      .catch(error => {
+        console.error('Error al cargar datos personales:', error);
+        tbody.innerHTML = '<tr><td colspan="7">Error al cargar datos</td></tr>';
+      });
+  }
 });
